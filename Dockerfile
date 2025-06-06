@@ -1,5 +1,8 @@
-FROM n8nio/n8n
+FROM n8nio/n8n:latest
 
 USER root
-RUN apt-get update && apt-get install -y pandoc && apt-get clean
+
+# Install pandoc via Alpine's package manager
+RUN apk add --no-cache pandoc
+
 USER node
